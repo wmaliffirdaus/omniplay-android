@@ -132,29 +132,66 @@ Room Database
 
 ```text
 .
-├── assets/
-├── gradle/
-├── app/
+├── assets/                          # Static assets and design resources
+├── gradle/                          # Gradle wrapper files
+├── app/                             # Main application module
 │   ├── src/
-│   │   ├── androidTest/
-│   │   ├── test/
+│   │   ├── androidTest/             # Instrumented unit tests running on physical devices/emulators
+│   │   ├── test/                    # Local JVM unit tests
 │   │   └── main/
 │   │       ├── java/
-│   │       │   └── com/example/
-│   │       │       ├── data/
-│   │       │       ├── repository/
-│   │       │       ├── ui/
-│   │       │       │   ├── screens/
-│   │       │       │   └── theme/
-│   │       │       ├── OmniPlayViewModel.kt
-│   │       │       └── MainActivity.kt
-│   │       ├── res/
-│   │       └── AndroidManifest.xml
-│   ├── build.gradle.kts
-│   └── proguard-rules.pro
-├── build.gradle.kts
-├── settings.gradle.kts
-└── metadata.json
+│   │       │   └── com/
+│   │       │       └── example/
+│   │       │           ├── data/                      # Data layer (Local DB, Room, Entities, DAOs)
+│   │       │           │   ├── AppDatabase.kt         # Room Database configuration
+│   │       │           │   ├── Daos.kt                # Database access objects
+│   │       │           │   └── Entities.kt            # Room database table definitions
+│   │       │           │
+│   │       │           ├── repository/                # Repository layer (Data source coordinator)
+│   │       │           │   └── OmniPlayRepository.kt  # Single source of truth for app data
+│   │       │           │
+│   │       │           ├── ui/                        # Presentation layer (UI & Theme)
+│   │       │           │   ├── screens/               # Compose Screens (Views)
+│   │       │           │   │   ├── AuthScreens.kt             # Authentication flow screens
+│   │       │           │   │   ├── BookingProcessScreens.kt   # Step-by-step booking screens
+│   │       │           │   │   ├── BookingsScreen.kt          # User bookings list/history
+│   │       │           │   │   ├── ExploreScreen.kt           # Search & Discovery page
+│   │       │           │   │   ├── HomeScreen.kt              # App dashboard dashboard/landing
+│   │       │           │   │   ├── NotificationScreen.kt      # User alerts and updates
+│   │       │           │   │   ├── ProfileScreen.kt           # Account and settings details
+│   │       │           │   │   └── StudioDetailsScreen.kt     # Detail page for booking entities
+│   │       │           │   │
+│   │       │           │   └── theme/                 # Styling and theme definitions
+│   │       │           │       ├── Color.kt           # Color definitions
+│   │       │           │       ├── Theme.kt           # Jetpack Compose Theme configuration
+│   │       │           │       └── Type.kt            # Typography configurations
+│   │       │           │
+│   │       │           ├── OmniPlayViewModel.kt       # Viewmodel handling UI state & business logic
+│   │       │           └── MainActivity.kt            # Application entry point (Single-Activity host)
+│   │       │
+│   │       ├── res/                         # Android application resources
+│   │       │   ├── drawable/                # Vector assets & static images
+│   │       │   ├── mipmap-anydpi-v26/       # Adaptive launcher icons XML
+│   │       │   ├── mipmap-*/                # Launcher icons for various screen densities
+│   │       │   ├── values/                  # Native styling XML values
+│   │       │   │   ├── colors.xml           # Legacy / System UI color definitions
+│   │       │   │   ├── strings.xml          # Localization and static text definitions
+│   │       │   │   └── themes.xml           # System theme parent styles
+│   │       │   └── xml/                     # Miscellaneous XML configuration files
+│   │       │
+│   │       └── AndroidManifest.xml          # App manifest declaring permissions, activities, etc.
+│   │
+│   ├── .gitignore                   # App-level Git ignore list
+│   ├── build.gradle.kts             # App-level build configuration & dependencies
+│   └── proguard-rules.pro           # ProGuard rules for code shrinking and obfuscation
+│
+├── .env.example                     # Reference environment variables template
+├── .gitignore                       # Project-level Git ignore list
+├── build.gradle.kts                 # Project-level build configuration (plugins definition)
+├── gradle.properties                # Project-wide JVM, memory, and compiler flags
+├── local.properties                 # Local SDK and environment configurations (ignored by Git)
+├── metadata.json                    # Configuration or metadata deployment file
+└── settings.gradle.kts              # Module declaration and plugin repository settings
 ```
 
 ---
