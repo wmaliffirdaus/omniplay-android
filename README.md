@@ -247,9 +247,9 @@ UI (Jetpack Compose)
 ### Installation
 
 ```bash
-git clone https://github.com/your-username/omniplay-android.git
+git clone https://github.com/your-username/omniplay-booking-app.git
 
-cd omniplay-android
+cd omniplay-booking-app
 ```
 
 Open the project in Android Studio.
