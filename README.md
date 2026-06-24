@@ -75,13 +75,13 @@ The application follows the **MVVM Architecture Pattern**.
 UI (Jetpack Compose)
         │
         ▼
-ViewModel
+     ViewModel
         │
         ▼
-Repository
+    Repository
         │
         ▼
-Room Database
+   Room Database
 ```
 
 ### Benefits
